@@ -17,13 +17,15 @@ const banner =
 const moduleName = pkg.name.split('-').map(str => str[0].toUpperCase() + str.slice(1)).join('')
 
 export default {
-  entry: 'src/index.js',
+  input: 'src/index.js',
   format: 'umd',
-  moduleName: moduleName,
+  // moduleName: moduleName,
   plugins: [
     resolve(),
     babel({
-      presets: ['es2015-rollup'],
+      presets: [
+        ['@babel/preset-env'],
+      ],
       babelrc: false,
       exclude: 'node_modules/**' // only transpile our source code
     }),
@@ -31,5 +33,10 @@ export default {
       banner
     })
   ],
-  dest: `./dist/${pkg.name}.js`
+  output: {
+    format: 'umd',
+    name: moduleName,
+    sourcemap: true,
+    file: `./dist/${pkg.name}.js`
+  }
 }

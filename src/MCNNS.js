@@ -1,18 +1,4 @@
-export const activation = {
-	RELU: {
-		output: RELU,
-		derivative: RELU_DERIVATIVE
-	},
-	SIGMOID: {
-		output: SIGMOID,
-		derivative: SIGMOID_DERIVATIVE
-	},
-	TANH: {
-		output: TANH,
-		derivative: TANH_DERIVATIVE
-	}
-}
-
+import { activation  } from './util'
 
 export default class MCNNS {
   constructor({ network, digitLength = 5, activationType }) {

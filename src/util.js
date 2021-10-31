@@ -10,20 +10,7 @@ export function identity(x) {
 	return x
 }
 
-export const activation = {
-	RELU: {
-		output: RELU,
-		derivative: RELU_DERIVATIVE
-	},
-	SIGMOID: {
-		output: SIGMOID,
-		derivative: SIGMOID_DERIVATIVE
-	},
-	TANH: {
-		output: TANH,
-		derivative: TANH_DERIVATIVE
-	}
-}
+
 
 function RELU(x) {
 	return Math.max(0, x)
@@ -63,3 +50,22 @@ function LINEAR(x) {
 function LINEAR_DERIVATIVE(x) {
 	return 1
 }
+
+const activation = {
+	RELU: {
+		output: RELU,
+		derivative: RELU_DERIVATIVE
+	},
+	SIGMOID: {
+		output: SIGMOID,
+		derivative: SIGMOID_DERIVATIVE
+	},
+	TANH: {
+		output: TANH,
+		derivative: TANH_DERIVATIVE
+	}
+}
+
+export {
+	activation
+};
